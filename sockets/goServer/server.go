@@ -17,19 +17,20 @@ func main() {
 		return
 	}
 
+	// While loop do Go (linguagem meio estranha mas ta valendo)
 	for {
 		conn, err := listen.Accept()
 		if err != nil {
 			fmt.Println("[!]Erro: ", err)
 			continue
 		}
-
+		// Threading (retiro o que eu disse eu amo Go)
 		go handleConnection(conn)
 	}
-
 }
 
 func handleConnection(conn net.Conn) {
+	// Fecha a conexão quando a função retornar algo
 	defer conn.Close()
 	for {
 		buff := make([]byte, 1024)
@@ -38,7 +39,9 @@ func handleConnection(conn net.Conn) {
 			fmt.Println("[!]Erro: ", err)
 			return
 		}
-		fmt.Printf("[✅]Incoming: %s \n", buff);
-		conn.Write([]byte("[127.0.0.1] OK"))
+		fmt.Printf("[✅]Incoming: %s", buff)
+		// Da um encode no texto e joga pra uma array de bits
+		// conn.Write([]byte("[SERVER] Recived"))
+		conn.Write([]byte("test"))
 	}
 }
