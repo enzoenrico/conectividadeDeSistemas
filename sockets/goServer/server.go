@@ -39,7 +39,7 @@ func handleConnection(conn net.Conn) {
 			fmt.Println("[!]Erro: ", err)
 			return
 		}
-		fmt.Printf("[✅]Incoming: %s", buff)
+		fmt.Printf("[✅]Incoming: %s \n", buff)
 		// Da um encode no texto e joga pra uma array de bits
 		// conn.Write([]byte("[SERVER] Recived"))
 		conn.Write([]byte("test"))
