@@ -22,7 +22,7 @@ send.onclick = () =>{
     input.value = ''
 }
 
-window.addEventListener("keypress", (e)=>{
+send.addEventListener("keypress", (e)=>{
     if(e.key === "Enter"){
         const message = {
             username: username.value,
