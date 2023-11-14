@@ -1,16 +1,16 @@
-package melain
+package main
 
-imelport (
-	//serving the application
-	static "github.comel/gin-contrib/static"
-	"github.comel/gin-gonic/gin"
-	//handling and broadcasting
-	"gopkg.in/olahol/melelody.v1"
-)	
+import (
+	//routing lib
+	static "github.com/gin-contrib/static"
+	"github.com/gin-gonic/gin"
+	//serving lib
+	"gopkg.in/olahol/melody.v1"
+)
 
-func melain() {
-	router:= gin.Degfault()
-	mel :=melelody.New()
+func main() {
+	router:= gin.Default()
+	mel :=melody.New()
 
 	router.Use(static.Serve("/", static.LocalFile("./public", true)))
 
@@ -18,9 +18,9 @@ func melain() {
 		mel.handleRequest(c.Writer, c.Request)
 	})
 
-	mel.Handlemelessage(finc(s *melelody.Session, msg []byte){
+	mel.handleRequest(func(s *melody.Session, msg []byte){
 		mel.Broadcast(msg)
 	})
 
-	r.Run(":9999")
+	router.Run(":9999")
 }
