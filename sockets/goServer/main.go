@@ -1,23 +1,26 @@
-package main
+package melain
 
-import (
-	"github.com/gin-gonic/gin"
-)
+imelport (
+	//serving the application
+	static "github.comel/gin-contrib/static"
+	"github.comel/gin-gonic/gin"
+	//handling and broadcasting
+	"gopkg.in/olahol/melelody.v1"
+)	
 
-func main() {
-	go h.run()
+func melain() {
+	router:= gin.Degfault()
+	mel :=melelody.New()
 
-	router := gin.New()
-	router.LoadHTMLFiles("index.html")
+	router.Use(static.Serve("/", static.LocalFile("./public", true)))
 
-	router.GET("/room/:roomId", func(c *gin.Context) {
-		c.HTML(200, "index.html", nil)
+	router.GET("/ws", func(c *gin.Context){
+		mel.handleRequest(c.Writer, c.Request)
 	})
 
-	router.GET("/ws/:roomId", func(c *gin.Context) {
-		roomId := c.Param("roomId")
-		serveWs(c.Writer, c.Request, roomId)
+	mel.Handlemelessage(finc(s *melelody.Session, msg []byte){
+		mel.Broadcast(msg)
 	})
 
-	router.Run("localhost:8080")
+	r.Run(":9999")
 }
