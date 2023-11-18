@@ -3,7 +3,7 @@ const messages = document.querySelector('#messages')
 const username = document.querySelector('#username')
 const send = document.querySelector('#send')
 
-const url = "wss://" + window.location.host + "/ws";
+const url = "wss://" + "localhost:9999" + "/ws";
 const ws = new WebSocket(url);
 
 ws.onmessage = (msg)=>{

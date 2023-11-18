@@ -1,8 +1,11 @@
 package main
 
 import (
+	//routing
 	static "github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
+
+	//serving
 	"gopkg.in/olahol/melody.v1"
 )
 
@@ -20,5 +23,5 @@ func main() {
 		mel.Broadcast(msg)
 	})
 
-	router.Run(":5000")
+	router.Run(":9999")
 }

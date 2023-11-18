@@ -1,7 +1,7 @@
 import socket
 
-HOST: str = 'localhost'
-PORT: str = 8080
+HOST: str = '127.0.0.1'
+PORT: str = 9999
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
